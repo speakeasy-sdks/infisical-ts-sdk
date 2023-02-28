@@ -1,34 +1,45 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class User extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "_id" })
   id?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=createdAt" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "createdAt" })
   createdAt?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=email" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "email" })
   email?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=encryptedPrivateKey" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "encryptedPrivateKey" })
   encryptedPrivateKey?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=firstName" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "firstName" })
   firstName?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=iv" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "iv" })
   iv?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=lastName" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "lastName" })
   lastName?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=publicKey" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "publicKey" })
   publicKey?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=tag" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "tag" })
   tag?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=updatedAt" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "updatedAt" })
   updatedAt?: string;
 }

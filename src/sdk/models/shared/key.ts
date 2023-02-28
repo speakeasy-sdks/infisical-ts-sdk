@@ -1,20 +1,27 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Sender } from "./sender";
+import { Expose, Type } from "class-transformer";
 
 
 export class Key extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=encryptedkey" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "encryptedkey" })
   encryptedkey?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=nonce" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "nonce" })
   nonce?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=receiver" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "receiver" })
   receiver?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=sender" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "sender" })
+  @Type(() => Sender)
   sender?: Sender;
 
-  @SpeakeasyMetadata({ data: "json, name=workspace" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workspace" })
   workspace?: string;
 }

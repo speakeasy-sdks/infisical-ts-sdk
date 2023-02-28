@@ -1,17 +1,23 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { User } from "./user";
+import { Expose, Type } from "class-transformer";
 
 
 export class Membership extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=role" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "role" })
   role?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=status" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "status" })
   status?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=user" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "user" })
+  @Type(() => User)
   user?: User;
 
-  @SpeakeasyMetadata({ data: "json, name=workspace" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workspace" })
   workspace?: string;
 }

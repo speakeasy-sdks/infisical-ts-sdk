@@ -1,9 +1,12 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
+import { Expose, Type } from "class-transformer";
 
 
 export class UpdateSecretsRequestBody extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=secrets", elemType: shared.Secret })
+  @SpeakeasyMetadata({ elemType: shared.Secret })
+  @Expose({ name: "secrets" })
+  @Type(() => shared.Secret)
   secrets?: shared.Secret[];
 }
 

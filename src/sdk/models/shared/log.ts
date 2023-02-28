@@ -1,32 +1,43 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Action } from "./action";
+import { Expose, Type } from "class-transformer";
 
 
 export class Log extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "_id" })
   id?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=actionNames" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "actionNames" })
   actionNames?: string[];
 
-  @SpeakeasyMetadata({ data: "json, name=actions", elemType: Action })
+  @SpeakeasyMetadata({ elemType: Action })
+  @Expose({ name: "actions" })
+  @Type(() => Action)
   actions?: Action[];
 
-  @SpeakeasyMetadata({ data: "json, name=channel" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "channel" })
   channel?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=createdAt" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "createdAt" })
   createdAt?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=ipAddress" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "ipAddress" })
   ipAddress?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=updatedAt" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "updatedAt" })
   updatedAt?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=user" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "user" })
   user?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=workspace" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workspace" })
   workspace?: string;
 }

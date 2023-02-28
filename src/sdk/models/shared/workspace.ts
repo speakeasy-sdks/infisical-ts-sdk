@@ -1,17 +1,23 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Environment } from "./environment";
+import { Expose, Type } from "class-transformer";
 
 
 export class Workspace extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "_id" })
   id?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=environments", elemType: Environment })
+  @SpeakeasyMetadata({ elemType: Environment })
+  @Expose({ name: "environments" })
+  @Type(() => Environment)
   environments?: Environment[];
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=organization" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "organization" })
   organization?: string;
 }

@@ -1,6 +1,8 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class User {
   _defaultClient: AxiosInstance;
@@ -47,17 +49,29 @@ export class User {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.organizations = httpRes?.data;
+              res.organizations = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -95,17 +109,29 @@ export class User {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.user = httpRes?.data;
+              res.user = plainToInstance(
+                shared.User,
+                httpRes?.data as shared.User,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }

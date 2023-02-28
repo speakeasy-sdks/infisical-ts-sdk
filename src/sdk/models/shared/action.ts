@@ -1,17 +1,23 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Payload } from "./payload";
+import { Expose, Type } from "class-transformer";
 
 
 export class Action extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=payload" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "payload" })
+  @Type(() => Payload)
   payload?: Payload;
 
-  @SpeakeasyMetadata({ data: "json, name=user" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "user" })
   user?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=workspace" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workspace" })
   workspace?: string;
 }

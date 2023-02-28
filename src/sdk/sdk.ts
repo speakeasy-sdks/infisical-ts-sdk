@@ -2,7 +2,7 @@ import * as utils from "../internal/utils";
 import { Key } from "./key";
 import { Log } from "./log";
 import { Membership } from "./membership";
-import { Security } from "./models/shared";
+import * as shared from "./models/shared";
 import { Organization } from "./organization";
 import { Secret } from "./secret";
 import { Snapshot } from "./snapshot";
@@ -19,13 +19,13 @@ export const ServerList = [
 export type SDKProps = {
   defaultClient?: AxiosInstance;
 
-  security?: Security;
+  security?: shared.Security;
 
   serverUrl?: string;
 }
 
 /* SDK Documentation: https://infisical.com/docs/api-reference/overview/introduction - Infisical API documentation*/
-export class SDK {
+export class Infisical {
   public key: Key;
   public log: Log;
   public membership: Membership;
@@ -39,17 +39,17 @@ export class SDK {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.1.0";
-  private _genVersion = "1.5.3";
+  private _sdkVersion = "0.1.1";
+  private _genVersion = "1.5.4";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];
 
     this._defaultClient = props.defaultClient ?? axios.create({ baseURL: this._serverURL });
     if (props.security) {
-      let security: Security = props.security;
+      let security: shared.Security = props.security;
       if (!(props.security instanceof utils.SpeakeasyBase))
-        security = new Security(props.security);
+        security = new shared.Security(props.security);
       this._securityClient = utils.createSecurityClient(
         this._defaultClient,
         security

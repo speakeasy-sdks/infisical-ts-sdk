@@ -1,6 +1,8 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class Membership {
   _defaultClient: AxiosInstance;
@@ -52,17 +54,29 @@ export class Membership {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.membership = httpRes?.data;
+              res.membership = plainToInstance(
+                shared.Membership,
+                httpRes?.data as shared.Membership,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -105,17 +119,29 @@ export class Membership {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.membership = httpRes?.data;
+              res.membership = plainToInstance(
+                shared.Membership,
+                httpRes?.data as shared.Membership,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -158,17 +184,29 @@ export class Membership {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.memberships = httpRes?.data;
+              res.memberships = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -211,17 +249,29 @@ export class Membership {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.memberships = httpRes?.data;
+              res.memberships = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -278,17 +328,29 @@ export class Membership {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.membership = httpRes?.data;
+              res.membership = plainToInstance(
+                shared.Membership,
+                httpRes?.data as shared.Membership,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -345,17 +407,29 @@ export class Membership {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.membership = httpRes?.data;
+              res.membership = plainToInstance(
+                shared.Membership,
+                httpRes?.data as shared.Membership,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }

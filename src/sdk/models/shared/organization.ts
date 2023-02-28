@@ -1,13 +1,17 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class Organization extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "_id" })
   id?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=customerId" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "customerId" })
   customerId?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name?: string;
 }

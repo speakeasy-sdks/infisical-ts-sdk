@@ -1,6 +1,8 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
+import * as shared from "./models/shared";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class Secret {
   _defaultClient: AxiosInstance;
@@ -66,17 +68,29 @@ export class Secret {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.secrets = httpRes?.data;
+              res.secrets = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -133,17 +147,29 @@ export class Secret {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.secrets = httpRes?.data;
+              res.secrets = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -171,19 +197,12 @@ export class Secret {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -194,17 +213,29 @@ export class Secret {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.secretVersions = httpRes?.data;
+              res.secretVersions = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -261,17 +292,29 @@ export class Secret {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.secret = httpRes?.data;
+              res.secret = plainToInstance(
+                shared.Secret,
+                httpRes?.data as shared.Secret,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -328,17 +371,29 @@ export class Secret {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.secrets = httpRes?.data;
+              res.secrets = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           case httpRes?.status == 500:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.errorResponse = httpRes?.data;
+              res.errorResponse = plainToInstance(
+                shared.ErrorResponse,
+                httpRes?.data as shared.ErrorResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }

@@ -1,52 +1,69 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class Secret extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "_id" })
   id?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=createdAt" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "createdAt" })
   createdAt?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=secretCommentCiphertext" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "secretCommentCiphertext" })
   secretCommentCiphertext?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=secretCommentIV" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "secretCommentIV" })
   secretCommentIV?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=secretCommentTag" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "secretCommentTag" })
   secretCommentTag?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=secretKeyCiphertext" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "secretKeyCiphertext" })
   secretKeyCiphertext?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=secretKeyIV" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "secretKeyIV" })
   secretKeyIV?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=secretKeyTag" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "secretKeyTag" })
   secretKeyTag?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=secretValueCiphertext" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "secretValueCiphertext" })
   secretValueCiphertext?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=secretValueIV" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "secretValueIV" })
   secretValueIV?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=secretValueTag" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "secretValueTag" })
   secretValueTag?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=updatedAt" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "updatedAt" })
   updatedAt?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=user" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "user" })
   user?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=version" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "version" })
   version?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=workspace" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workspace" })
   workspace?: string;
 }

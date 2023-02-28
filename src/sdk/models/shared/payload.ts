@@ -1,10 +1,13 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class Payload extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=newSecretVersion" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "newSecretVersion" })
   newSecretVersion?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=oldSecretVersion" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "oldSecretVersion" })
   oldSecretVersion?: string;
 }
