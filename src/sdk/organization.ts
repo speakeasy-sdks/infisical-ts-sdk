@@ -119,11 +119,7 @@ export class Organization {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.memberships = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.memberships = httpRes?.data;
             }
             break;
           case httpRes?.status == 401:
@@ -184,11 +180,7 @@ export class Organization {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.workspaces = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.workspaces = httpRes?.data;
             }
             break;
           case httpRes?.status == 401:

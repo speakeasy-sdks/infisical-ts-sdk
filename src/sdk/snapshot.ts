@@ -54,11 +54,7 @@ export class Snapshot {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.snapshots = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.snapshots = httpRes?.data;
             }
             break;
           case httpRes?.status == 401:
@@ -133,11 +129,7 @@ export class Snapshot {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.secrets = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.secrets = httpRes?.data;
             }
             break;
           case httpRes?.status == 401:

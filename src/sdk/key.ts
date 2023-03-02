@@ -54,11 +54,7 @@ export class Key {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.keys = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.keys = httpRes?.data;
             }
             break;
           case httpRes?.status == 401:

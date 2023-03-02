@@ -49,11 +49,7 @@ export class User {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.organizations = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.organizations = httpRes?.data;
             }
             break;
           case httpRes?.status == 401:

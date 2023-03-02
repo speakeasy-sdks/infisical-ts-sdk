@@ -54,11 +54,7 @@ export class Log {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.logs = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.logs = httpRes?.data;
             }
             break;
           case httpRes?.status == 401:

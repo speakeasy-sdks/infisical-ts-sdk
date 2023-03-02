@@ -68,11 +68,7 @@ export class Secret {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.secrets = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.secrets = httpRes?.data;
             }
             break;
           case httpRes?.status == 401:
@@ -147,11 +143,7 @@ export class Secret {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.secrets = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.secrets = httpRes?.data;
             }
             break;
           case httpRes?.status == 401:
@@ -213,11 +205,7 @@ export class Secret {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.secretVersions = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.secretVersions = httpRes?.data;
             }
             break;
           case httpRes?.status == 401:
@@ -371,11 +359,7 @@ export class Secret {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.secrets = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.secrets = httpRes?.data;
             }
             break;
           case httpRes?.status == 401:
