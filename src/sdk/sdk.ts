@@ -24,7 +24,8 @@ export type SDKProps = {
   serverUrl?: string;
 }
 
-/* SDK Documentation: https://infisical.com/docs/api-reference/overview/introduction - Infisical API documentation*/
+/* SDK Documentation: The Infisical REST API provides users an alternative way to programmatically access and manage secrets via HTTPS requests. This can be useful for automating tasks, such as rotating credentials, or for integrating secret management into a larger system.
+ * https://infisical.com/docs/api-reference/overview/introduction - Infisical API documentation*/
 export class Infisical {
   public key: Key;
   public log: Log;
@@ -39,8 +40,8 @@ export class Infisical {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.3.0";
-  private _genVersion = "1.7.1";
+  private _sdkVersion = "0.4.0";
+  private _genVersion = "1.8.2";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];
