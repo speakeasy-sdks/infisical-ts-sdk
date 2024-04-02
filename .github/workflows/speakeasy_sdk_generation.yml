@@ -11,7 +11,8 @@ jobs:
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-generation.yaml@v10
     with:
       force: ${{ github.event.inputs.force }}
-      languages: '- typescript'
+      languages: |
+        - typescript
       openapi_doc_auth_header: x-api-key
       openapi_doc_location: https://prod.speakeasyapi.dev/v1/apis/infisical/version/v2/schema/download
       speakeasy_version: latest
